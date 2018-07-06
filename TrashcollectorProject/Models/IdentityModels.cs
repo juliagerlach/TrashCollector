@@ -18,13 +18,6 @@ namespace TrashcollectorProject.Models
         }
     }
 
-    public class ApplicationRole:IdentityRole
-    {
-        public ApplicationRole() : base() { }
-        public ApplicationRole(string roleName) : base(roleName) { }
-
-    }
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -36,7 +29,7 @@ namespace TrashcollectorProject.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<TrashcollectorProject.Models.RoleViewModel> RoleViewModels { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Employee> Employee { get; set; }
     }
 }

@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{09E31B19-528F-4A61-82E9-AB5D3AE292B6}</ProjectGuid>
+    <ProjectGuid>{BD786D6B-7D79-4711-A018-D5D47C5510E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrashcollectorProject.Tests</RootNamespace>
@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrashcollectorProject\TrashcollectorProject.csproj">
-      <Project>{C35F1091-993C-4B33-B413-03D30ECA32EA}</Project>
+      <Project>{4227FAC7-ECBA-46A4-96D6-8219F53AFA3D}</Project>
       <Name>TrashcollectorProject</Name>
     </ProjectReference>
   </ItemGroup>
