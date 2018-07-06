@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace TrashcollectorProject.Models
 {
@@ -49,9 +50,9 @@ namespace TrashcollectorProject.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Email")]
         [EmailAddress]
-        public string UserName { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,16 +65,17 @@ namespace TrashcollectorProject.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        
         [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
+        public IEnumerable<SelectListItem> RolesList { get; set; }
 
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        
         [Display(Name = "UserName")]
 
         public string UserName { get; set; }
@@ -86,7 +88,7 @@ namespace TrashcollectorProject.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -105,7 +107,7 @@ namespace TrashcollectorProject.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
