@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace TrashcollectorProject.Models
 {
@@ -17,7 +18,10 @@ namespace TrashcollectorProject.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+        
+        [Display(Name = "PickUpDay")]
         public string PickupDay { get; set; }
+        public IEnumerable<SelectListItem> DayList { get; set; }
 
         //blackout day option
         //extra pickup day

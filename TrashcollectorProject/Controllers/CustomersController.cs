@@ -38,7 +38,19 @@ namespace TrashcollectorProject.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            return View();
+            List<SelectListItem> days = new List<SelectListItem>();
+            days.Add(new SelectListItem { Text = "Monday"});
+            days.Add(new SelectListItem { Text = "Tuesday" });
+            days.Add(new SelectListItem { Text = "Wednesday" });
+            days.Add(new SelectListItem { Text = "Thursday" });
+            days.Add(new SelectListItem { Text = "Friday" });
+            days.Add(new SelectListItem { Text = "Saturday" });
+            days.Add(new SelectListItem { Text = "Sunday" });
+            Customer customer = new Customer()
+            {
+                DayList = days
+            };
+            return View(customer);
         }
 
         // POST: Customers/Create
@@ -114,6 +126,22 @@ namespace TrashcollectorProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //public List<SelectListItem> SelectPickUpDay()
+        //{
+        //    List<SelectListItem> days = new List<SelectListItem>();
+        //    days.Add(new SelectListItem { Text = "Monday" });
+        //    days.Add(new SelectListItem { Text = "Tuesday" });
+        //    days.Add(new SelectListItem { Text = "Wednesday" });
+        //    days.Add(new SelectListItem { Text = "Thursday" });
+        //    days.Add(new SelectListItem { Text = "Friday" });
+        //    days.Add(new SelectListItem { Text = "Saturday" });
+        //    days.Add(new SelectListItem { Text = "Sunday" });
+        //    Customer customer = new Customer()
+        //    {
+        //        DayList = days
+        //    };
+        //    return day(customer);
+        //}
 
         protected override void Dispose(bool disposing)
         {
