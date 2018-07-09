@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -23,8 +24,10 @@ namespace TrashcollectorProject.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
+                var currentUserId = User.Identity.GetUserId();
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Customer customer = db.Customer.Find(id);
@@ -62,6 +65,7 @@ namespace TrashcollectorProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                //customer.UserId = User.Identity.GetUserId();
                 db.Customer.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +82,12 @@ namespace TrashcollectorProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Customer customer = db.Customer.Find(id);
+
             if (customer == null)
             {
                 return HttpNotFound();
             }
+
             return View(customer);
         }
 

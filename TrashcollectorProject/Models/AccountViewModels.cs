@@ -38,6 +38,7 @@ namespace TrashcollectorProject.Models
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
+        public string UserRoles { get; internal set; }
     }
 
     public class ForgotViewModel
@@ -61,6 +62,7 @@ namespace TrashcollectorProject.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+        public string UserRoles { get; internal set; }
     }
 
     public class RegisterViewModel

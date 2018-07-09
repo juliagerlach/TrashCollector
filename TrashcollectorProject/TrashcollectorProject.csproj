@@ -208,13 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807060258332_Customer.cs" />
-    <Compile Include="Migrations\201807060258332_Customer.Designer.cs">
-      <DependentUpon>201807060258332_Customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807060303316_Employee.cs" />
-    <Compile Include="Migrations\201807060303316_Employee.Designer.cs">
-      <DependentUpon>201807060303316_Employee.cs</DependentUpon>
+    <Compile Include="Migrations\201807092143356_DbWithFKs.cs" />
+    <Compile Include="Migrations\201807092143356_DbWithFKs.Designer.cs">
+      <DependentUpon>201807092143356_DbWithFKs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -315,11 +311,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807060258332_Customer.resx">
-      <DependentUpon>201807060258332_Customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807060303316_Employee.resx">
-      <DependentUpon>201807060303316_Employee.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807092143356_DbWithFKs.resx">
+      <DependentUpon>201807092143356_DbWithFKs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
