@@ -248,3 +248,6 @@ C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\Trashcollec
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.csproj.CopyComplete
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.dll
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.pdb
+C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\bin\SendGrid.dll
+C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\bin\SendGrid.pdb
+C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\bin\SendGrid.xml

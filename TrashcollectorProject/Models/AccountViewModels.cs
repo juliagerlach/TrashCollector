@@ -65,11 +65,6 @@ namespace TrashcollectorProject.Models
 
     public class RegisterViewModel
     {
-        
-        [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
-        public IEnumerable<SelectListItem> RolesList { get; set; }
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -90,6 +85,10 @@ namespace TrashcollectorProject.Models
         [Display(Name = "Confirm password")]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+        public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 
     public class ResetPasswordViewModel

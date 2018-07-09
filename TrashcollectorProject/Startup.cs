@@ -18,9 +18,8 @@ namespace TrashcollectorProject
         private void createRolesandUsers()
         {   
             ApplicationDbContext context = new ApplicationDbContext();
-
-        var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-        var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));   
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));   
    
        
             if (!roleManager.RoleExists("Admin"))   
@@ -42,7 +41,6 @@ namespace TrashcollectorProject
                 if (chkUser.Succeeded)   
                 {   
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
-
     }
 }   
    
@@ -51,8 +49,7 @@ namespace TrashcollectorProject
             {   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
                 role.Name = "Manager";   
-                roleManager.Create(role);   
-   
+                roleManager.Create(role);      
             }
 
             // creating Creating Employee role    
