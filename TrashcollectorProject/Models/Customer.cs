@@ -26,6 +26,7 @@ namespace TrashcollectorProject.Models
         [Display(Name = "PickUpDay")]
         public string PickupDay { get; set; }
         public IEnumerable<SelectListItem> DayList { get; set; }
+        public double AccountBalance { get; set; }
         //blackout day option
         //extra pickup day
     }

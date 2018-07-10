@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<TrashcollectorProject.Models.Customer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customer Welcome";
 }
 
-<h2>Index</h2>
+<h2>Welcome</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Another Account", "Create")
 </p>
 <table class="table">
     <tr>
@@ -66,7 +66,6 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
         </td>
     </tr>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +18,9 @@ namespace TrashcollectorProject.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employee.ToList());
+            var currentUserId = User.Identity.GetUserId();
+            var employee = db.Employee.Where(c => c.UserId == currentUserId);
+            return View(employee);
         }
 
         // GET: Employees/Details/5

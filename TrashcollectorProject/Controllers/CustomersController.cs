@@ -18,7 +18,9 @@ namespace TrashcollectorProject.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customer.ToList());
+            var currentUserId = User.Identity.GetUserId();
+            var customer = db.Customer.Where(c => c.UserId == currentUserId);
+            return View(customer);
         }
 
         // GET: Customers/Details/5
@@ -65,13 +67,17 @@ namespace TrashcollectorProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                //customer.UserId = User.Identity.GetUserId();
+                customer.UserId = User.Identity.GetUserId();
                 db.Customer.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(customer);
+        }
+        public ActionResult Home()
+        {
+            return View();
         }
 
         // GET: Customers/Edit/5
