@@ -19,8 +19,8 @@ namespace TrashcollectorProject.Controllers
         public ActionResult Index()
         {
             var currentUserId = User.Identity.GetUserId();
-            var customer = db.Customer.Where(c => c.UserId == currentUserId);
-            return View(customer);
+            var customers = db.Customer.Where(c => c.UserId == currentUserId);
+            return View(db.Customer.ToList());
         }
 
         // GET: Customers/Details/5

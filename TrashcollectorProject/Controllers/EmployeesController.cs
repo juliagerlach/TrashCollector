@@ -19,8 +19,8 @@ namespace TrashcollectorProject.Controllers
         public ActionResult Index()
         {
             var currentUserId = User.Identity.GetUserId();
-            var employee = db.Employee.Where(c => c.UserId == currentUserId);
-            return View(employee);
+            var employees = db.Employee.Where(c => c.UserId == currentUserId);
+            return View(db.Employee.ToList());
         }
 
         // GET: Employees/Details/5
@@ -53,6 +53,7 @@ namespace TrashcollectorProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                employee.UserId = User.Identity.GetUserId();
                 db.Employee.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -116,6 +117,35 @@ namespace TrashcollectorProject.Controllers
             db.Employee.Remove(employee);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DisplayPickups(int id)
+        {
+            Employee employee = db.Employee.Find(id);
+            var currentUserZip = from e in db.Employee select e;
+            var customers = from c in db.Customer select c;
+            var pickups = db.Customer.Where(c => c.ZipCode == employee.ZipCode);
+            return View(pickups.ToList());
+        }
+
+        public ActionResult SortPickups(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewBag.DaySortParm = sortOrder == "PickupDay" ? "PickupDay_desc" : "PickUpDay";
+            var customers = from c in db.Customer select c;
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    customers = customers.OrderByDescending(c => c.LastName);
+                    break;
+                case "PickupDay":
+                    customers = customers.OrderBy(c => c.PickupDay);
+                    break;
+                default:
+                    customers = customers.OrderBy(c => c.LastName);
+                    break;
+            }
+            return View(customers.ToList());
         }
 
         protected override void Dispose(bool disposing)
