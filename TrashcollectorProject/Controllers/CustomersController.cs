@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TrashcollectorProject.Models;
 
@@ -151,13 +149,15 @@ namespace TrashcollectorProject.Controllers
 
         [HttpPost]
             public ActionResult RequestExtraPickup([Bind(Include = "CustomerId")] ExtraDay extraDay)
-        {
+            {
+            var currentUserId = User.Identity.GetUserId();
+            var customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
             try
             {
                 if (ModelState.IsValid)
                 {
-                    //Customer customer = db.Customer.Find(UserId);
-                    //db.Customer.Add(extraDay);
+                   
+                    //db.Customer.InsertOnSubmit(extraDay);
                     db.SaveChanges();
                     return RedirectToAction("Details");
                 }
@@ -165,13 +165,17 @@ namespace TrashcollectorProject.Controllers
             catch (DataException)
             {
                 ModelState.AddModelError("", "Unable to process. Please try again by typing the full name of the day of the week you are requesting.");
-                //RequestExtraPickup(string extraDay);
-                //return View("ExtraDay", customer);
+                RequestExtraPickup(extraDay);
+                return View("ExtraDay", customer);
             }
            
             return View("Details");
         }
 
+        public void InsertOnsubmit(Customer customer)
+        {
+
+        }
            
 
         protected override void Dispose(bool disposing)

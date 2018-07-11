@@ -6,10 +6,10 @@ using System.Web;
 
 namespace TrashcollectorProject.Models
 {
-    public class Day
+    public class ExtraDay
     {
         [Key]
         public int ID { get; set; }
-        public string PickupDay { get; set; }
+        public string ExtraPickupDay { get; set; }
     }
 }
