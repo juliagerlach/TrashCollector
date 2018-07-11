@@ -135,7 +135,11 @@ namespace TrashcollectorProject.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
             ViewBag.DaySortParm = sortOrder == "PickupDay" ? "PickupDay_desc" : "PickUpDay";
+            var userId = User.Identity.GetUserId();
+            Employee employee = db.Employee.Where(e => e.UserId == userId).FirstOrDefault();
             var customers = from c in db.Customer select c;
+            var weeksPickups = db.Customer.Where(c => c.ZipCode == employee.ZipCode).ToList();
+            
             switch (sortOrder)
             {
                 case "Name_desc":
@@ -148,7 +152,7 @@ namespace TrashcollectorProject.Controllers
                     customers = customers.OrderBy(c => c.LastName);
                     break;
             }
-            return View(customers.ToList());
+            return View("SortedPickups", weeksPickups);
         }
 
         protected override void Dispose(bool disposing)
