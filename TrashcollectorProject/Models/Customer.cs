@@ -41,7 +41,7 @@ namespace TrashcollectorProject.Models
 
         public int ZipCode { get; set; }
         
-        [Display(Name = "PickUpDay")]
+        [Display(Name = "Pickup Day")]
         public string PickupDay { get; set; }
 
         public IEnumerable<SelectListItem> DayList { get; set; }

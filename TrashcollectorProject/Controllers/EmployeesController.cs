@@ -26,6 +26,7 @@ namespace TrashcollectorProject.Controllers
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {
+            var currentUserId = User.Identity.GetUserId();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -119,13 +120,15 @@ namespace TrashcollectorProject.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DisplayPickups(int id)
+        public ActionResult DisplayPickups(int? id)
         {
-            Employee employee = db.Employee.Find(id);
+            var today = DateTime.Now.DayOfWeek.ToString();
+            var userId = User.Identity.GetUserId();
+            Employee employee = db.Employee.Where(e => e.UserId == userId).FirstOrDefault();
             var currentUserZip = from e in db.Employee select e;
             var customers = from c in db.Customer select c;
-            var pickups = db.Customer.Where(c => c.ZipCode == employee.ZipCode);
-            return View(pickups.ToList());
+            var pickups = db.Customer.Where(c => c.ZipCode == employee.ZipCode && c.PickupDay == today).ToList();
+            return View("Pickups", pickups);
         }
 
         public ActionResult SortPickups(string sortOrder)

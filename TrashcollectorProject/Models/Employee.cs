@@ -39,5 +39,9 @@ namespace TrashcollectorProject.Models
         public string State { get; set; }
 
         public int ZipCode { get; set; }
+        public int PickUpCharge { get; set; }
+        public Customer Customer { get; set; }
+        public string CustomerAddress { get; set; }
+        public IEnumerable<Customer> Customers { get; set; }
     }
 }

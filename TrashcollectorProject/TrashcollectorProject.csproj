@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DayController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -216,9 +217,18 @@
     <Compile Include="Migrations\201807101549282_test.Designer.cs">
       <DependentUpon>201807101549282_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807110438143_Test2.cs" />
+    <Compile Include="Migrations\201807110438143_Test2.Designer.cs">
+      <DependentUpon>201807110438143_Test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807110448503_Newpudaytable.cs" />
+    <Compile Include="Migrations\201807110448503_Newpudaytable.Designer.cs">
+      <DependentUpon>201807110448503_Newpudaytable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -299,9 +309,11 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
     <Content Include="Views\Shared\_LayoutEmployee.cshtml" />
+    <Content Include="Views\Employees\Pickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Day\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -322,6 +334,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807101549282_test.resx">
       <DependentUpon>201807101549282_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807110438143_Test2.resx">
+      <DependentUpon>201807110438143_Test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807110448503_Newpudaytable.resx">
+      <DependentUpon>201807110448503_Newpudaytable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
