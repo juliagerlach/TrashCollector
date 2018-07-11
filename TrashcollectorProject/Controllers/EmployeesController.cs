@@ -27,11 +27,12 @@ namespace TrashcollectorProject.Controllers
         public ActionResult Details(int? id)
         {
             var currentUserId = User.Identity.GetUserId();
-            if (id == null)
+            var employee = db.Employee.Where(c => c.UserId == currentUserId).FirstOrDefault();
+            if (currentUserId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Employee.Find(id);
+            
             if (employee == null)
             {
                 return HttpNotFound();

@@ -26,13 +26,14 @@ namespace TrashcollectorProject.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
-            
-            if (id == null)
+
+            var currentUserId = User.Identity.GetUserId();
+            var customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
+            if (currentUserId == null)
             {
-                var currentUserId = User.Identity.GetUserId();
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
+
             if (customer == null)
             {
                 return HttpNotFound();
