@@ -253,3 +253,4 @@ C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\Trashcollec
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.Migrations.test.resources
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.Migrations.Test2.resources
 C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.Migrations.Newpudaytable.resources
+C:\Users\Julia\Documents\projects\dcc projects\TrashcollectorProject\TrashcollectorProject\obj\Debug\TrashcollectorProject.Migrations.extraday.resources

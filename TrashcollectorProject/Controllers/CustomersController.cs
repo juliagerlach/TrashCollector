@@ -59,10 +59,11 @@ namespace TrashcollectorProject.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+    // POST: Customers/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+    [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,EmailAddress,StreetAddress,City,State,ZipCode,PickupDay")] Customer customer)
         {
@@ -139,22 +140,39 @@ namespace TrashcollectorProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //public List<SelectListItem> SelectPickUpDay()
-        //{
-        //    List<SelectListItem> days = new List<SelectListItem>();
-        //    days.Add(new SelectListItem { Text = "Monday" });
-        //    days.Add(new SelectListItem { Text = "Tuesday" });
-        //    days.Add(new SelectListItem { Text = "Wednesday" });
-        //    days.Add(new SelectListItem { Text = "Thursday" });
-        //    days.Add(new SelectListItem { Text = "Friday" });
-        //    days.Add(new SelectListItem { Text = "Saturday" });
-        //    days.Add(new SelectListItem { Text = "Sunday" });
-        //    Customer customer = new Customer()
-        //    {
-        //        DayList = days
-        //    };
-        //    return day(customer);
-        //}
+
+       
+        public ActionResult RequestExtraPickUp()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
+            return View("ExtraDay", customer);
+        }
+
+        [HttpPost]
+            public ActionResult RequestExtraPickup([Bind(Include = "CustomerId")] ExtraDay extraDay)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    //Customer customer = db.Customer.Find(UserId);
+                    //db.Customer.Add(extraDay);
+                    db.SaveChanges();
+                    return RedirectToAction("Details");
+                }
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to process. Please try again by typing the full name of the day of the week you are requesting.");
+                //RequestExtraPickup(string extraDay);
+                //return View("ExtraDay", customer);
+            }
+           
+            return View("Details");
+        }
+
+           
 
         protected override void Dispose(bool disposing)
         {

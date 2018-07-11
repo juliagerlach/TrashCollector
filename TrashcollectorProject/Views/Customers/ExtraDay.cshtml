@@ -1,0 +1,14 @@
+﻿@model TrashcollectorProject.Models.Customer
+@{
+    ViewBag.Title = "ExtraDay";
+}
+
+<h2>Request Extra Pickup</h2>
+@using (Html.BeginForm())
+{
+<p>
+    To schedule an extra pickup this week, please enter the day of the week you want the pickup scheduled for, and click the submit button: @Html.TextBox("String")
+    <input type="submit" value="Submit" /></p>
+}
+
+
