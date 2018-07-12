@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -140,42 +141,47 @@ namespace TrashcollectorProject.Controllers
         }
 
        
-        public ActionResult RequestExtraPickUp()
+        public ActionResult FormCollectionEg(int? id)
         {
             var currentUserId = User.Identity.GetUserId();
-            var customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
+            Customer customer = db.Customer.Where( c=> c.UserId == currentUserId).FirstOrDefault();
             return View("ExtraDay", customer);
         }
 
         [HttpPost]
-            public ActionResult RequestExtraPickup([Bind(Include = "CustomerId")] ExtraDay extraDay)
-            {
-            var currentUserId = User.Identity.GetUserId();
-            var customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                   
-                    //db.Customer.InsertOnSubmit(extraDay);
-                    db.SaveChanges();
-                    return RedirectToAction("Details");
-                }
-            }
-            catch (DataException)
-            {
-                ModelState.AddModelError("", "Unable to process. Please try again by typing the full name of the day of the week you are requesting.");
-                RequestExtraPickup(extraDay);
-                return View("ExtraDay", customer);
-            }
-           
-            return View("Details");
-        }
-
-        public void InsertOnsubmit(Customer customer)
+            public ActionResult FormCollectionEg(int? id, FormCollection data)
         {
+            var currentUserId = User.Identity.GetUserId();
+            Customer Customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
+            string value = Convert.ToString(data["ExtraDay"]);
+            value = Customer.ExtraDay;
+            UpdateModel(Customer, "", new string[] { "ExtraDay" }); 
 
+            //if (TryUpdateModel(customer, "", new string[] { "FirstName", "LastName", "EmailAddress", "StreetAddress", "City", "State", "ZipCode", "PickupDay", "ExtraDay"}))
+            //{
+            //    try
+            //    {
+            //        if (String.IsNullOrWhiteSpace(customer.ExtraDay))
+            //        {
+            //            customer.ExtraDay = null;
+            //        }
+
+
+            //    db.Entry(customer).State = EntityState.Modified;
+            //        db.SaveChanges();
+            //        return RedirectToAction("Details");
+            //    }
+
+            //    catch (DataException /* dex */)
+            //    {
+            //        //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
+            //        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            //    }
+            //}
+            //ViewBag.ExtraDay = new SelectList(db.Customer, "ExtraDay", currentUserId);
+            return RedirectToAction("Details");
         }
+
            
 
         protected override void Dispose(bool disposing)

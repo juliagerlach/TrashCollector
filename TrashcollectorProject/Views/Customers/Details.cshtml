@@ -75,6 +75,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ExtraDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraDay)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.AccountBalance)
         </dt>
 
@@ -84,6 +92,7 @@
 
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
     @Html.ActionLink("Back to List", "Index")
