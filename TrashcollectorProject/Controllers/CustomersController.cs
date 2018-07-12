@@ -157,32 +157,13 @@ namespace TrashcollectorProject.Controllers
             value = Customer.ExtraDay;
             UpdateModel(Customer, "", new string[] { "ExtraDay" }); 
 
-            //if (TryUpdateModel(customer, "", new string[] { "FirstName", "LastName", "EmailAddress", "StreetAddress", "City", "State", "ZipCode", "PickupDay", "ExtraDay"}))
-            //{
-            //    try
-            //    {
-            //        if (String.IsNullOrWhiteSpace(customer.ExtraDay))
-            //        {
-            //            customer.ExtraDay = null;
-            //        }
-
-
-            //    db.Entry(customer).State = EntityState.Modified;
-            //        db.SaveChanges();
-            //        return RedirectToAction("Details");
-            //    }
-
-            //    catch (DataException /* dex */)
-            //    {
-            //        //Log the error (uncomment dex variable name after DataException and add a line here to write a log.
-            //        ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-            //    }
-            //}
-            //ViewBag.ExtraDay = new SelectList(db.Customer, "ExtraDay", currentUserId);
             return RedirectToAction("Details");
         }
 
-           
+         public ActionResult MakePayment()
+        {
+            return RedirectToAction("Details");
+        }
 
         protected override void Dispose(bool disposing)
         {

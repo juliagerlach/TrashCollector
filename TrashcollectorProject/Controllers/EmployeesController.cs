@@ -156,6 +156,11 @@ namespace TrashcollectorProject.Controllers
             return View("SortedPickups", weeksPickups);
         }
 
+        public ActionResult LogPickupComplete()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

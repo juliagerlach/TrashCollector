@@ -229,6 +229,14 @@
     <Compile Include="Migrations\201807111954194_extraday.Designer.cs">
       <DependentUpon>201807111954194_extraday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807120801433_pickupcharge.cs" />
+    <Compile Include="Migrations\201807120801433_pickupcharge.Designer.cs">
+      <DependentUpon>201807120801433_pickupcharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807120806230_payment fields.cs" />
+    <Compile Include="Migrations\201807120806230_payment fields.Designer.cs">
+      <DependentUpon>201807120806230_payment fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -348,6 +356,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807111954194_extraday.resx">
       <DependentUpon>201807111954194_extraday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807120801433_pickupcharge.resx">
+      <DependentUpon>201807120801433_pickupcharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807120806230_payment fields.resx">
+      <DependentUpon>201807120806230_payment fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

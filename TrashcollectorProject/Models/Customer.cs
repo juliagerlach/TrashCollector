@@ -50,5 +50,12 @@ namespace TrashcollectorProject.Models
         public double AccountBalance { get; set; }
 
         public string ExtraDay { get; set; }
+        public double PickUpCharge
+        {
+            get
+            { return 10; }
+        }
+        public bool PaymentComplete { get; set; }
+
+        }
     }
-}
