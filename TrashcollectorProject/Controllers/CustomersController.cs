@@ -149,13 +149,13 @@ namespace TrashcollectorProject.Controllers
         }
 
         [HttpPost]
-            public ActionResult FormCollectionEg(int? id, FormCollection data)
+            public ActionResult FormCollectionEg(int? id, string day)
         {
             var currentUserId = User.Identity.GetUserId();
             Customer Customer = db.Customer.Where(c => c.UserId == currentUserId).FirstOrDefault();
-            string value = Convert.ToString(data["ExtraDay"]);
-            value = Customer.ExtraDay;
-            UpdateModel(Customer, "", new string[] { "ExtraDay" }); 
+            Customer.ExtraDay = day;
+            db.Entry(Customer).State = EntityState.Modified;
+            db.SaveChanges();
 
             return RedirectToAction("Details");
         }
